@@ -1,18 +1,38 @@
 //
-//  ToDoAppView.swift
+//  ToDoListView.swift
 //  ToDoApp
 //
-//  Created by Nguyễn Quang Anh on 22/4/25.
+//  Created by Nguyễn Quang Anh on 24/4/25.
 //
 
 import SwiftUI
 
-struct ToDoAppView: View {
+struct ToDoListView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+        List {
+            VStack {
+                HStack {
+                    Spacer()
+                    Image(systemName: "checkmark.circle")
+                    Text("Việc cần làm")
+                    Spacer()
+                }
+
+            }
+
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("Today")
+                    .font(.headline)
+                    .foregroundColor(.primary)
+            }
+        }    }
 }
 
 #Preview {
-    ToDoAppView()
+    NavigationView {
+        ToDoListView()
+    }
 }
